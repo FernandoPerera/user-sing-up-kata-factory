@@ -19,4 +19,8 @@ export class Age {
 
     }
 
+    getAge(): number {
+        return this.age
+    }
+
 }

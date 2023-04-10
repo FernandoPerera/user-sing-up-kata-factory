@@ -24,7 +24,7 @@ describe('age test', () => {
 
         const age: Age = Age.createNewAge(17)
 
-        expect( age ).toBe(17)
+        expect( age.getAge() ).toBe(17)
 
     })
 
