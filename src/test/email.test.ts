@@ -16,7 +16,7 @@ describe('email test', () => {
 
     it('email have a wrong format return error response', () => {
 
-        expect( () => Email.createNewEmail('') ).toThrow('Email have a wrong format')
+        expect( () => Email.createNewEmail('example.com') ).toThrow('Email have a wrong format')
 
     })
 

@@ -9,9 +9,11 @@ export class Email {
 
     static createNewEmail( email: string ): Email {
 
-        const EmailIsEmpty = !email
+        const emailIsEmpty = !email
+        const wrongEmailFormat = !email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
 
-        if ( EmailIsEmpty ) { throw new Error( 'Email couldnt be empty' ) }
+        if ( emailIsEmpty ) { throw new Error( 'Email couldnt be empty' ) }
+        if ( wrongEmailFormat ) { throw new Error( 'Email have a wrong format' ) }
 
         return new Email( email )
 
