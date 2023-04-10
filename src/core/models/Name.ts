@@ -12,10 +12,10 @@ export class Name {
         const nameIsNotEmpty = name !== ''
 
         if ( nameIsNotEmpty ) {
-            return new Name(name)
+            return new Name( name )
         }
 
-        throw new Error('Name cant be a empty string')
+        throw new Error( 'Name cant be a empty string' )
 
     }
 
