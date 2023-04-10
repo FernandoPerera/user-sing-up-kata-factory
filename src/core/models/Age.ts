@@ -9,8 +9,11 @@ export class Age {
 
     static createNewAge(age: number): Age {
 
-        return new Age(age)
+        if ( age > 0 ) {
+            return new Age(age)            
+        }
 
+        throw new Error('Age have to be greater than zero')
     }
 
 }
