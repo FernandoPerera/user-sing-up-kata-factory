@@ -30,7 +30,7 @@ describe('email test', () => {
 
         const email: Email = Email.createNewEmail('example@gmail.com')
 
-        expect( email ).toBe('example@gmail.com')
+        expect( email.getEmail() ).toBe('example@gmail.com')
 
     })
 

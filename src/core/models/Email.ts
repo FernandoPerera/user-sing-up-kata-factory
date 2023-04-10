@@ -19,4 +19,8 @@ export class Email {
 
     }
 
+    getEmail(): string {
+        return this.email
+    }
+
 }
