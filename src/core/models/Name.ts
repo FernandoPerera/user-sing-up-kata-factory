@@ -19,4 +19,8 @@ export class Name {
 
     }
 
+    toString(): string {
+        return this.name
+    }
+
 }

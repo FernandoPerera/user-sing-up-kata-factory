@@ -7,7 +7,7 @@ import { Name } from '../core/models/Name';
 
 describe('name test', () => {
 
-    it('if name was empty return error response', () => {
+    it('name was empty return error response', () => {
 
         expect( () => Name.createNewName('') ).toThrow('Name cant be a empty string')
 
@@ -17,7 +17,7 @@ describe('name test', () => {
 
         const name: Name = Name.createNewName('Fernando')
 
-        expect(name).toBe('Fernando')
+        expect(name.toString()).toBe('Fernando')
 
     })
 
