@@ -9,7 +9,11 @@ export class Email {
 
     static createNewEmail( email: string ): Email {
 
-        return new Email( email )
+        if ( email !== '' ) {
+            return new Email(email)
+        }
+
+        throw new Error('Email couldnt be empty')
 
     }
 
