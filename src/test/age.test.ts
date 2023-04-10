@@ -14,4 +14,10 @@ describe('age test', () => {
 
     })
 
+    it('if age was a float return error response', () => {
+
+        expect( () => Age.createNewAge(17.89) ).toThrow('Age have to be a whole number')
+
+    })
+
 })
