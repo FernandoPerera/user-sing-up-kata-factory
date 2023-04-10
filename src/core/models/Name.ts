@@ -9,12 +9,14 @@ export class Name {
 
     static createNewName( name: string ): Name {
 
-        if( name !== '' ) {
+        const nameIsNotEmpty = name !== ''
+
+        if ( nameIsNotEmpty ) {
             return new Name(name)
         }
 
         throw new Error('Name cant be a empty string')
-        
+
     }
 
 }
