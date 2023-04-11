@@ -14,4 +14,16 @@ export class User {
         this.email = email
     }
 
+    getName(): string {
+        return this.name.getName()
+    }
+
+    getAge(): number {
+        return this.age.getAge()
+    }
+
+    getEmail(): string {
+        return this.email.getEmail()
+    }
+
 }

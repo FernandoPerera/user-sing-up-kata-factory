@@ -14,12 +14,14 @@ describe('sing-up user test', () => {
 
     let fakeUserController: FakeUserController
     let userService: UserService
-    let spy: jest.SpyInstance<void, [user: User], any>
+    let saveSpy: jest.SpyInstance<void, [user: User], any>
+    let userExistSpy: jest.SpyInstance<boolean, [user: User], any>
 
     beforeEach( () => {
         fakeUserController = new FakeUserController()
         userService = new UserService(fakeUserController)
-        spy = jest.spyOn(userService, 'save')
+        saveSpy = jest.spyOn(userService, 'save')
+        userExistSpy = jest.spyOn(userService, 'userExist')
     })
 
     it('user is correct insert into the database', () => {
@@ -31,7 +33,7 @@ describe('sing-up user test', () => {
 
         userService.save(user)
 
-        expect(spy).toHaveBeenCalledWith(user)
+        expect(saveSpy).toHaveBeenCalledWith(user)
 
     })
 
@@ -45,9 +47,9 @@ describe('sing-up user test', () => {
         userService.save(user)
         userService.save(user)
 
-        expect(spy).toHaveBeenNthCalledWith(2, user)       
-        expect(userService.userExist).toHaveBeenNthCalledWith(2, user)
-        expect(userService.userExist).toHaveLastReturnedWith(true)
+        expect(saveSpy).toHaveBeenNthCalledWith(2, user)       
+        expect(userExistSpy).toHaveBeenNthCalledWith(2, user)
+        expect(userExistSpy).toHaveLastReturnedWith(true)
         
     })
 

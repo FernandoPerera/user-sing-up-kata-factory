@@ -10,11 +10,15 @@ export class UserService {
     }
 
     save( user: User ): void {
-        this.userRepository.save(user)
+
+        if (!this.userExist(user)) {
+            this.userRepository.save(user)            
+        }
+
     }
 
     userExist(user : User) : boolean {
-        throw new Error('Not implemented yet')
+        return this.userRepository.userExist(user)
     }
 
 }

@@ -19,7 +19,7 @@ export class Name {
 
     }
 
-    toString(): string {
+    getName(): string {
         return this.name
     }
 

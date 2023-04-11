@@ -10,7 +10,11 @@ export class FakeUserController implements UserRepository {
     }
 
     userExist(user: User): boolean {
-        throw new Error('Not implemented yet')
+        
+        return this.fakeDataBase.some( 
+            (actualUser) => user.getEmail() === actualUser.getEmail() 
+        )
+
     }
 
 }

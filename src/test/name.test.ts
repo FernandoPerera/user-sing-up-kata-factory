@@ -17,7 +17,7 @@ describe('name test', () => {
 
         const name: Name = Name.createNewName('Fernando')
 
-        expect(name.toString()).toBe('Fernando')
+        expect(name.getName()).toBe('Fernando')
 
     })
 
