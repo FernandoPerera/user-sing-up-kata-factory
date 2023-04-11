@@ -35,4 +35,20 @@ describe('sing-up user test', () => {
 
     })
 
+    it('if user exist in the database dont add', () => {
+        
+        const name = Name.createNewName('Fernando')
+        const age = Age.createNewAge(20)
+        const email = Email.createNewEmail('example@gmail.com')
+        const user = new User(name, age, email)
+
+        userService.save(user)
+        userService.save(user)
+
+        expect(spy).toHaveBeenNthCalledWith(2, user)       
+        expect(userService.userExist).toHaveBeenNthCalledWith(2, user)
+        expect(userService.userExist).toHaveLastReturnedWith(true)
+        
+    })
+
 })

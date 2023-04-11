@@ -13,4 +13,8 @@ export class UserService {
         this.userRepository.save(user)
     }
 
+    userExist(user : User) : boolean {
+        throw new Error('Not implemented yet')
+    }
+
 }

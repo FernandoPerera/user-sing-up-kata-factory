@@ -9,4 +9,8 @@ export class FakeUserController implements UserRepository {
         this.fakeDataBase.push(user)
     }
 
+    userExist(user: User): boolean {
+        throw new Error('Not implemented yet')
+    }
+
 }

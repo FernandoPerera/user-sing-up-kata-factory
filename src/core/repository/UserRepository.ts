@@ -4,4 +4,6 @@ export interface UserRepository {
 
     save(user: User): void
 
+    userExist(user: User): boolean
+
 }
