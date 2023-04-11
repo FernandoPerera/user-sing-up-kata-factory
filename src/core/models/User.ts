@@ -8,7 +8,7 @@ export class User {
     private age: Age
     private email: Email
 
-    constructor( name: Name, age: Age, email: Email ) {
+    constructor(name: Name, age: Age, email: Email) {
         this.name = name
         this.age = age
         this.email = email

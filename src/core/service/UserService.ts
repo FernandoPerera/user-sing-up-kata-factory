@@ -11,7 +11,9 @@ export class UserService {
 
     save( user: User ): void {
 
-        if (!this.userExist(user)) {
+        const userDontExist = !this.userExist(user)
+
+        if (userDontExist) {
             this.userRepository.save(user)            
         }
 

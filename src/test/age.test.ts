@@ -10,13 +10,13 @@ describe('age test', () => {
 
     it('if age was empty return error response', () => {
 
-        expect( () => Age.createNewAge(0) ).toThrow('Age have to be greater than zero')
+        expect( () => Age.createNewAge(0)).toThrow('Age have to be greater than zero')
 
     })
 
     it('if age was a float return error response', () => {
 
-        expect( () => Age.createNewAge(17.89) ).toThrow('Age have to be a whole number')
+        expect( () => Age.createNewAge(17.89)).toThrow('Age have to be a whole number')
 
     })
 
@@ -24,7 +24,7 @@ describe('age test', () => {
 
         const age: Age = Age.createNewAge(17)
 
-        expect( age.getAge() ).toBe(17)
+        expect(age.getAge()).toBe(17)
 
     })
 
