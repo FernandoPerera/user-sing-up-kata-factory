@@ -7,17 +7,19 @@ import { Age } from '../core/models/Age';
 
 /**
  *  - if user is correct                ->      add into database
- *  - if email exist in the database    ->      dont add into database
+ *  - if user exist in the database    ->      dont add into database
 */
 
 describe('sing-up user test', () => {
 
     let fakeUserController: FakeUserController
     let userService: UserService
+    let spy: jest.SpyInstance<void, [user: User], any>
 
     beforeEach( () => {
         fakeUserController = new FakeUserController()
         userService = new UserService(fakeUserController)
+        spy = jest.spyOn(userService, 'save')
     })
 
     it('user is correct insert into the database', () => {
@@ -29,8 +31,7 @@ describe('sing-up user test', () => {
 
         userService.save(user)
 
-        jest.spyOn(userService, 'save')
-        expect(userService.save).toHaveBeenCalledWith(user)
+        expect(spy).toHaveBeenCalledWith(user)
 
     })
 

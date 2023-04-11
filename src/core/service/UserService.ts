@@ -10,7 +10,7 @@ export class UserService {
     }
 
     save( user: User ): void {
-        throw new Error('Not implemented yet')
+        this.userRepository.save(user)
     }
 
 }

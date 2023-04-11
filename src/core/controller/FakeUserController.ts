@@ -6,7 +6,7 @@ export class FakeUserController implements UserRepository {
     private fakeDataBase: Array<User> = []
 
     save(user: User): void {
-        throw new Error('Not implemented yet')
+        this.fakeDataBase.push(user)
     }
 
 }
