@@ -1,7 +1,7 @@
 import { User } from "@core/models/User";
 import { UserRepository } from "@core/repository/UserRepository";
 
-export class FakeUserController implements UserRepository {
+export class FakeUserRepository implements UserRepository {
 
     private fakeDataBase: Array<User> = []
 
