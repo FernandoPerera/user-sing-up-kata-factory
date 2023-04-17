@@ -5,6 +5,7 @@ import { User } from '../core/models/User'
 import { Email } from '../core/models/Email'
 import { Name } from '../core/models/Name'
 import { Age } from '../core/models/Age'
+import { UserRepository } from '../core/repository/UserRepository';
 
 /*
  *  - if user is correct                ->      add into database
@@ -12,7 +13,6 @@ import { Age } from '../core/models/Age'
 */
 
 describe('sing-up user test', () => {
-
     let fakeUserRepository: FakeUserRepository
     let userService: UserService
 
@@ -47,15 +47,19 @@ describe('sing-up user test', () => {
 
     })
 
-    it('if user exist in the database dont add', () => {
+    it('if user exist do not save user', () => {
 
-        userService.save(user)
-        userService.save(user)
+        const myFakeUserRepository: UserRepository = {
+            save: jest.fn(),
+            userExist: () => true
+        }
+        const myUserService = new UserService(myFakeUserRepository)
 
-        expect(saveSpy).toHaveBeenNthCalledWith(1, user)      
-        expect(userExistSpy).toHaveBeenNthCalledWith(2, user)
-        expect(userExistSpy).toHaveLastReturnedWith(true)
+        myUserService.save(user)
+
+        expect(myFakeUserRepository.save).not.toHaveBeenCalled()      
         
     })
+
 
 })

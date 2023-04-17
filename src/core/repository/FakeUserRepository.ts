@@ -6,7 +6,7 @@ export class FakeUserRepository implements UserRepository {
     private fakeDataBase: Array<User> = []
 
     save(user: User): void {
-        this.fakeDataBase.push(user)
+        return null
     }
 
     userExist(user: User): boolean {
